@@ -9,18 +9,8 @@ abi = JSON.parse('[{"type":"constructor","stateMutability":"nonpayable","inputs"
 contract = new web3.eth.Contract(abi);
 contract.options.address = "0x6E6E633320Ca9f2c8a8722c5f4a993D9a093462E";
 
-
-let x = contract.methods.getValue('ETH/USD').call().then(function(result) {
-    $('#getValue').html(Math.round(result[0] / 100000000))
-    console.log(result[0]);
-});
-
-
-candidates = { "Rema": "candidate-1", "Nick": "candidate-2", "Jose": "candidate-3" }
-
 $(document).ready(function() {
     let x = contract.methods.getValue('ETH/USD').call().then(function(result) {
         $('#getValue').html(Math.round(result[0] / 100000000))
-        console.log(result[0]);
     });
 });
